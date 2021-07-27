@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <chrono>
 #include <thread>
+#include <cstdlib>
 using namespace std;
 
 const int rowLimit = 10;				//to set maximum book quantity that can be record
@@ -16,40 +17,41 @@ string bookIDtag[rowLimit] = {};
 float bookPrice[rowLimit] = {};
 
 void startLogo()
-{	
+{
 	cout << " ____________________________ " << endl;
 	cout << "| LIBRARY MANAGEMENT SYSTEM  |" << endl;
-	cout << "| NCS1A Group One          |" << endl;
-	cout << "| Assignment             |" << endl;
-	cout << "|_______________________|" << endl;
-	cout << endl; 
+	cout << "| NCS1A Group One            |" << endl;
+	cout << "| Assignment                 |" << endl;
+	cout << "|____________________________|" << endl;
+	cout << endl;
 	cout << "Welcome to Library Management System!\n";
-	cout << "by Group One\n--> Afiq\n--> Muhaimin\n--> Haikal\n--> Nasrul\n"<< flush; //flush forces the printing to the screen before it clears
-	this_thread::sleep_for(std::chrono::seconds(5)); //To display logo and team name.Requires header files "chrono" and "thread".
-	system("CLS");
+	cout << "by Group One\n--> Afiq\n--> Muhaimin\n--> Haikal\n--> Nasrul\n" << flush; //flush forces the printing to the screen before it clears
+	this_thread::sleep_for(std::chrono::seconds(3)); //To display logo and team name.Requires header files "chrono" and "thread".
+	system("CLS"); //clears the screen
 }
 void bookAdd()
-{	system("CLS");
-	char bookID[4] ;
-	char nameBook[50] ;
-	char author[15] ;
-	float price=0;
+{
+	system("CLS"); //clears the screen
+	char bookID[4];
+	char nameBook[50];
+	char author[15];
+	float price = 0;
 
 	cin.ignore();						//Put to avoid whitespace error
-	
+
 	cout << "****************************************************************************************************" << endl;
 	cout << "Please enter book info: \n";
 	cout << "****************************************************************************************************" << endl;
 	cout << endl;
 	cout << endl;
-	cout << "Enter book title (Input max 49 letter) =>" ;
-		cin.getline(nameBook, 50);
-	cout << "Enter book author (Input max 14 letter)=>" ;
-		cin.getline(author, 15) ;
+	cout << "Enter book title (Input max 49 letter) =>";
+	cin.getline(nameBook, 50);
+	cout << "Enter book author (Input max 14 letter)=>";
+	cin.getline(author, 15);
 	cout << "Book ID (format must be 1 character and 2 number) such as A01 =>";
-		cin.getline(bookID, 4);
+	cin.getline(bookID, 4);
 	cout << "Enter book price (Please enter number with or without decimal only)=>";
-		cin >> price;
+	cin >> price;
 
 	for (int r = 0; r < rowLimit; r++)
 	{
@@ -74,15 +76,15 @@ void bookDelete(string search)
 	for (int c = 0; c < rowLimit; c++)
 	{
 		if (bookIDtag[c] == search)
-		{	
+		{
 			counter++;
 			bookTitle[c] = "";
 			bookAuthor[c] = "";
-			bookIDtag[c] = "" ;
+			bookIDtag[c] = "";
 			bookPrice[c] = 0.00;
 
 			cout << endl;
-			cout << "The book has been deleted!"<<endl;
+			cout << "The book has been deleted!" << endl;
 			cout << "---------------------------------------------------------------------------------------------------" << endl;
 		}
 	}
@@ -104,7 +106,7 @@ void bookUpdate(string search)
 	int counter = 0;
 	cout << "===================================================================================================" << endl;
 	for (int v = 0; v < rowLimit; v++)
-	{	
+	{
 		if (bookIDtag[v] == search)
 		{
 			cout << "---------------------------------------------------------------------------------------------------" << endl;
@@ -116,7 +118,7 @@ void bookUpdate(string search)
 			cout << setw(4) << "|";
 			cout << bookTitle[v] << endl;
 			cout << "===================================================================================================" << endl;
-			
+
 			counter++;
 			cout << "Enter new book title => ";
 			cin.getline(nameBook, 50);
@@ -135,7 +137,7 @@ void bookUpdate(string search)
 			cout << "Successfully update the book!" << endl;
 			break;
 		}
-		
+
 	}
 	if (counter == 0)
 	{
@@ -149,7 +151,7 @@ void bookDisplay()
 {
 	system("CLS");
 	cout << "---------------------------------------------------------------------------------------------------" << endl;
-	cout << "All Book in Library List Diplay"<< endl;
+	cout << "All Book in Library List Diplay" << endl;
 	cout << "---------------------------------------------------------------------------------------------------" << endl;
 	cout << "  No.|Book ID|                  Book Title                                |    Author     |  Price " << endl;
 	cout << "===================================================================================================" << endl;
@@ -162,8 +164,8 @@ void bookDisplay()
 			cout << setw(3) << counter << setw(3) << "|" << setw(4) << bookIDtag[z];
 			cout << setw(4) << "|";
 			const string temp = bookTitle[z];
-			int p=temp.length() ;
-			if(p<50)
+			int p = temp.length();
+			if (p < 50)
 			{
 				cout << bookTitle[z];
 				for (int e = 0; e < (50 - p); e++)
@@ -216,7 +218,7 @@ void bookSearch(string search)
 
 	int counter = 0;
 	for (int f = 0; f < rowLimit; f++)
-	{	
+	{
 		if (bookIDtag[f] == search)
 		{
 			counter++;
@@ -237,7 +239,7 @@ void bookSearch(string search)
 }
 void LibraryValue()
 {
-	system("CLS");
+	system("CLS"); //clears the screen
 	cout << "---------------------------------------------------------------------------------------------------" << endl;
 	cout << "All Book in Library List Diplay" << endl;
 	cout << "---------------------------------------------------------------------------------------------------" << endl;
@@ -263,7 +265,7 @@ void LibraryValue()
 		cout << "Library is empty!" << endl;
 	}
 	cout << "****************************************************************************************************" << endl;
-	cout << "Library Value => RM " <<setprecision(2)<<fixed<<bookSum<<endl;
+	cout << "Library Value => RM " << setprecision(2) << fixed << bookSum << endl;
 	cout << "===================================================================================================" << endl;
 	cout << "*Press any key to return to menu";
 	cin.get();
@@ -279,12 +281,12 @@ void menuPage()
 	cout << "---------------------------------------------------------------------------------------------------";
 	cout << endl;
 	cout << endl;
-	cout << "(S) Search book by letter" << endl << endl;
-	cout << "(D) Display list of books" << endl << endl;
-	cout << "(A) Add a book" << endl << endl;
-	cout << "(U) Update book info" << endl << endl;
-	cout << "(X) Delete a book" << endl << endl;
-	cout << "(V) All book values (Library asset)" << endl << endl;
+	cout << "(S) Search Book by Book ID" << endl << endl;
+	cout << "(D) Display List of Books Avalible" << endl << endl;
+	cout << "(A) Add a Book" << endl << endl;
+	cout << "(U) Update Book info" << endl << endl;
+	cout << "(X) Delete a Book" << endl << endl;
+	cout << "(V) All Book Values (Library Asset)" << endl << endl;
 	cout << "(E) Exit" << endl << endl;
 	cout << "---------------------------------------------------------------------------------------------------";
 	cout << endl;
@@ -292,7 +294,7 @@ void menuPage()
 }
 void exitLogo()
 {
-	system("CLS");
+	system("CLS"); //clears the screen
 	cout << endl;
 	cout << endl;
 	cout << endl;
@@ -302,11 +304,50 @@ void exitLogo()
 	cout << endl;
 	cout << endl;
 }
+void Login_ID()
+{
+	class Register { public:string username, password; };
+	class Login { public:string inpUsername, inpPassword; };
 
+	Register newUser;
+	cout << "\n\n***Welcome to Libray Management System ***";
+	cout << "\n***Please register First***\n\n";
+	cout << "\nEnter your username: ";
+	cin >> newUser.username;
+	cout << "Enter your password: ";
+	cin >> newUser.password;
+	system("CLS");
+	cout << "\nSuccessfully Registered your account, Please login below.\n\n";
+
+	for (int i = 1; i >= 0; i--)
+	{
+		cout << "Please enter your password you have " << i << " attempts remaining: ";
+		// login
+		Login newLogin;
+		cout << "Please Login ";
+		cout << "\nUsername: ";
+		cin >> newLogin.inpUsername;
+		cout << "Password: ";
+		cin >> newLogin.inpPassword;
+
+		if (newLogin.inpUsername == newUser.username && newLogin.inpPassword == newUser.password)
+		{
+			cout << "\nSuccessfully logged in, loading your dashboard...";
+			break;
+		}
+		else
+		{
+			cout << "Login Failed! Please try again\n\n";
+		}
+	exit(4);
+	}		
+	system("CLS");
+}
 int main()
-{	
+{
 	startLogo();		//print out Logo
-	bool exit=true ;
+	Login_ID();
+	bool exit = true;	// declaring a boolean variable with true value   
 	char response;		//variable to accept response value
 	string inputID;
 
@@ -320,7 +361,7 @@ int main()
 			cin.ignore();
 			cout << "Search by using Book ID. Please enter ID=> ";
 			getline(cin, inputID);
-			bookSearch(inputID);							//call function
+			bookSearch(inputID);					//call function
 			break;
 		case 'D': case ('d'):						//call function
 			bookDisplay();
@@ -357,3 +398,4 @@ int main()
 
 	return 0;
 }
+//{"mode":"full", "isActive" : false}
