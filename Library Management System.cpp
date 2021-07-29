@@ -311,6 +311,9 @@ void exitLogo()
 	cout << endl;
 	cout << endl;
 	cout << endl;
+	cout << "Press any key to end program or click X at program";
+	cin.get();
+	cin.get();
 }
 void Login_ID()
 {
