@@ -18,6 +18,7 @@ float bookPrice[rowLimit] = {};
 
 void startLogo()
 {
+	system("Color 0A"); // Add color to background and text
 	cout << " ____________________________ " << endl;
 	cout << "| LIBRARY MANAGEMENT SYSTEM  |" << endl;
 	cout << "| NCS1A Group One            |" << endl;
@@ -31,6 +32,7 @@ void startLogo()
 }
 void bookAdd()
 {
+	system("Color F9"); // Add color to background and text
 	system("CLS"); //clears the screen
 	char bookID[4];
 	char nameBook[50];
@@ -69,6 +71,7 @@ void bookAdd()
 }
 void bookDelete(string search)
 {
+	system("Color F0"); // Add color to background and text
 	system("CLS");
 
 	int counter = 0;
@@ -90,13 +93,14 @@ void bookDelete(string search)
 	}
 	if (counter == 0)
 	{
-		cout << "Result not found";
+		cout << "Result not found"<<endl;
 	}
 	cout << "Press any key to back to refresh page";
 	cin.get();
 }
 void bookUpdate(string search)
 {
+	system("Color F0"); // Add color to background and text
 	system("CLS");
 	char bookID[4];
 	char nameBook[50];
@@ -149,6 +153,7 @@ void bookUpdate(string search)
 }
 void bookDisplay()
 {
+	system("Color F0"); // Add color to background and text
 	system("CLS");
 	cout << "---------------------------------------------------------------------------------------------------" << endl;
 	cout << "All Book in Library List Diplay" << endl;
@@ -209,6 +214,7 @@ void bookDisplay()
 }
 void bookSearch(string search)
 {
+	system("Color F0"); // Add color to background and text
 	system("CLS");
 	cout << "---------------------------------------------------------------------------------------------------" << endl;
 	cout << "Search result" << endl;
@@ -239,6 +245,7 @@ void bookSearch(string search)
 }
 void LibraryValue()
 {
+	system("Color F8"); // Add color light yellow background and gray text
 	system("CLS"); //clears the screen
 	cout << "---------------------------------------------------------------------------------------------------" << endl;
 	cout << "All Book in Library List Diplay" << endl;
@@ -282,7 +289,7 @@ void menuPage()
 	cout << endl;
 	cout << endl;
 	cout << "(S) Search Book by Book ID" << endl << endl;
-	cout << "(D) Display List of Books Avalible" << endl << endl;
+	cout << "(D) Display List of Books Available" << endl << endl;
 	cout << "(A) Add a Book" << endl << endl;
 	cout << "(U) Update Book info" << endl << endl;
 	cout << "(X) Delete a Book" << endl << endl;
@@ -294,6 +301,7 @@ void menuPage()
 }
 void exitLogo()
 {
+	system("Color 0A"); // Add color to background and text
 	system("CLS"); //clears the screen
 	cout << endl;
 	cout << endl;
@@ -352,7 +360,8 @@ int main()
 	string inputID;
 
 	do
-	{
+	{	
+		system("Color E4"); // Add color to yellow background and red text
 		menuPage();			//print out Menu
 		cin >> response;
 		switch (response)	//for selection of function					
